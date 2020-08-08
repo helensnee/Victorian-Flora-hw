@@ -22,7 +22,7 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 	 *
 	 * @var         form
 	 */
-	// $form = null;
+	protected $form = null;
 
 	/**
 	 * Display the Hello World view
