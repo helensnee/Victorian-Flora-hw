@@ -49,7 +49,7 @@ class HelloWorldModelHelloWorld extends JModelForm
 			'com_helloworld.helloworld',
 			'helloworld',
 			array(
-				'control' => 'hwform',
+				'control' => 'jform',
 				'load_data' => true
 			)
 		);
@@ -77,7 +77,12 @@ class HelloWorldModelHelloWorld extends JModelForm
 
 		return $data;
 	}
-		
+	public function save($data) 
+	{
+		$table = $this->getTable('HelloWorld', 'HelloWorldTable');
+		$table->bind($data);
+		$table->store();
+	}
 }
 
 
