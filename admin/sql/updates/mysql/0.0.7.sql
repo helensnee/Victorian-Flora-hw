@@ -3,6 +3,10 @@ DROP TABLE IF EXISTS `#__helloworld`;
 CREATE TABLE `#__helloworld` (
 	`id`       INT(11)     NOT NULL AUTO_INCREMENT,
 	`greeting` VARCHAR(25) NOT NULL,
+	`email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+    `secret` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+	`dat` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`num` int(11) NOT NULL DEFAULT '0' COMMENT 'Count of password resets since lastResetTime',
 	`published` tinyint(4) NOT NULL DEFAULT '1',
 	PRIMARY KEY (`id`)
 )
@@ -10,34 +14,6 @@ CREATE TABLE `#__helloworld` (
 	AUTO_INCREMENT =0
 	DEFAULT CHARSET =utf8;
 
-INSERT INTO `#__helloworld` (`greeting`) VALUES
-('Hello World!'),
-('Goodbye World!'),
-('HW#3'),
-('HW#4'),
-('HW#5'),
-('HW#6'),
-('HW#7'),
-('HW#8'),
-('HW#9'),
-('HW#10'),
-('HW#11'),
-('HW#12'),
-('HW#13'),
-('HW#14'),
-('HW#15'),
-('HW#16'),
-('HW#17'),
-('HW#18'),
-('HW#19'),
-('HW#20'),
-('HW#21'),
-('HW#22'),
-('HW#23'),
-('HW#24'),
-('HW#25'),
-('HW#26'),
-('HW#27'),
-('HW#28'),
-('HW#29'),
-('HW#30');
+INSERT INTO `#__helloworld` (`greeting`,`email`, `secret`, `dat`, `num`) VALUES
+('Hello World!', 'helensnee@lifesites.com.au', 'triXie3568', '2020-07-27 11:44:09', '0'),
+('Goodbye World!', 'helensnee@gmail.com', 'Trixie3568', '2020-07-27 11:44:09', '0');

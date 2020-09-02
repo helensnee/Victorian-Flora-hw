@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<form>
+<form
+				addrulepath="/administrator/components/com_helloworld/models/rules"
+>
 	<fieldset>
 		<field
 				name="id"
@@ -11,7 +13,54 @@
 				label="COM_HELLOWORLD_HELLOWORLD_GREETING_LABEL"
 				description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
 				size="40"
+				class="inputbox validate-greeting"
+				validate="greeting"
+				required="true"
+				default=""
+				/>
+		<field
+				name="num"
+				type="number"
+				label="COM_HELLOWORLD_HELLOWORLD_NUMBER_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_NUMBER_DESC"
+				size="40"
+				class="inputbox validate-numeric"
+				validate="number"
+				required="true"
+				default=""
+				/>
+		<field
+				name="email"
+				type="email"
+				label="COM_HELLOWORLD_HELLOWORLD_EMAIL_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_EMAIL_DESC"
+				size="40"
 				class="inputbox"
+				required="true"
+				message="COM_HELLOWORLD_HELLOWORLD_EMAIL_MESSAGE"
+				default=""
+				/>
+		<field
+				name="secret"
+				type="password"
+				label="COM_HELLOWORLD_HELLOWORLD_SECRET_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_SECRET_DESC"
+				size="40"
+				class="inputbox validate-password"
+				validate="password"
+				required="true"
+				message="COM_HELLOWORLD_HELLOWORLD_SECRET_MESSAGE"
+				hint="COM_HELLOWORLD_HELLOWORLD_SECRET_HINT"
+				default=""
+				/>
+		<field
+				name="dat"
+				type="calendar"
+				label="COM_HELLOWORLD_HELLOWORLD_DATE_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_DATE_DESC"
+				size="40"
+				class="inputbox"
+				validate="mydate"
 				default=""
 				/>
 	</fieldset>

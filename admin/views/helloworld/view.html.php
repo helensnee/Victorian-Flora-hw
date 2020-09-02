@@ -36,7 +36,8 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 		// Get the Data
 		$this->form = $this->get('Form');
 		$this->item = $this->get('Item');
-
+		$this->script = $this->get('Script');
+		
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{
@@ -51,6 +52,10 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 
 		// Display the template
 		parent::display($tpl);
+		
+		// Set the document
+		$this->setDocument();
+		
 	}
 
 	/**
@@ -85,4 +90,26 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 			$isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE'
 		);
 	}
+	
+		/**
+	 * Method to set up the document properties
+	 *
+	 * @return void
+	 */
+	protected function setDocument() 
+	{
+		
+		JHtml::_('behavior.framework');
+		JHtml::_('behavior.formvalidator');
+
+		$isNew = ($this->item->id < 1);
+		$document = JFactory::getDocument();
+		$document->setTitle($isNew ? JText::_('COM_HELLOWORLD_HELLOWORLD_CREATING') :
+                JText::_('COM_HELLOWORLD_HELLOWORLD_EDITING'));
+		$document->addScript(JURI::root() . $this->script);
+		$document->addScript(JURI::root() . "/administrator/components/com_helloworld"
+		                                  . "/views/helloworld/submitbutton.js");
+		JText::script('COM_HELLOWORLD_HELLOWORLD_ERROR_UNACCEPTABLE');
+	}
+	
 }

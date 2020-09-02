@@ -9,8 +9,14 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
+
+
+$listOrder     = $this->escape($this->filter_order);
+$listDirn      = $this->escape($this->filter_order_Dir);
+
 ?>
 <form action="index.php?option=com_helloworld&view=helloworlds" method="post" id="adminForm" name="adminForm">
+
 	<table class="table table-striped table-hover">
 		<thead>
 		<tr>
@@ -18,14 +24,23 @@ defined('_JEXEC') or die('Restricted Access');
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
-			<th width="90%">
-				<?php echo JText::_('COM_HELLOWORLD_HELLOWORLDS_NAME') ;?>
+			<th width="30%">
+				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_HELLOWORLDS_NAME', 'greeting', $listDirn, $listOrder); ?>
 			</th>
+			<th width="20%">
+				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_HELLOWORLDS_NUMBER', 'num', $listDirn, $listOrder); ?>
+			</th>
+			<th width="25%">
+				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_HELLOWORLDS_EMAIL', 'email', $listDirn, $listOrder); ?>
+			</th>
+			<th width="15%">
+				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_HELLOWORLDS_DATE', 'dat', $listDirn, $listOrder); ?>
+			</th>			
 			<th width="5%">
-				<?php echo JText::_('COM_HELLOWORLD_PUBLISHED'); ?>
+				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_PUBLISHED', 'published', $listDirn, $listOrder); ?>
 			</th>
 			<th width="2%">
-				<?php echo JText::_('COM_HELLOWORLD_ID'); ?>
+				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_ID', 'id', $listDirn, $listOrder); ?>
 			</th>
 		</tr>
 		</thead>
@@ -53,6 +68,15 @@ defined('_JEXEC') or die('Restricted Access');
 							<?php echo $row->greeting; ?>
 							</a>
 						</td>
+						<td>
+							<?php echo $row->num; ?>							
+						</td>
+						<td>
+							<?php echo $row->email; ?>							
+						</td>
+						<td>
+							<?php echo $row->dat; ?>					
+						</td>
 						<td align="center">
 							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'helloworlds.', false, 'cb'); ?>
 						</td>
@@ -66,5 +90,7 @@ defined('_JEXEC') or die('Restricted Access');
 	</table>
 	<input type="hidden" name="task" value=""/>
 	<input type="hidden" name="boxchecked" value="0"/>
+	<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
+	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>"/>
 	<?php echo JHtml::_('form.token'); ?>
 </form>
