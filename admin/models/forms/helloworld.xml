@@ -47,7 +47,7 @@
 				description="COM_HELLOWORLD_HELLOWORLD_SECRET_DESC"
 				size="40"
 				class="inputbox validate-password"
-				validate="password"
+				validate="secret"
 				required="true"
 				message="COM_HELLOWORLD_HELLOWORLD_SECRET_MESSAGE"
 				hint="COM_HELLOWORLD_HELLOWORLD_SECRET_HINT"
